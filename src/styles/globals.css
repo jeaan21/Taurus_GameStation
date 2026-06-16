@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blood: #8B0000;
+  --silver: #C0C0C0;
+  --smoke: #F5F5F5;
+  --bg-dark: #0D0D0D;
+  --bg-card: #1A1A1B;
+  --bg-card2: #252526;
+  --text-primary: #C0C0C0;
+  --text-muted: #8a8a8a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: linear-gradient(180deg, #0D0D0D 0%, #0D0D0D 30%, #111111 60%, #1A1A1B 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(139,0,0,0.3); color: var(--silver); }
+
+@layer components {
+  .font-orbitron { font-family: 'Orbitron', monospace; }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-md font-rajdhani font-bold text-sm tracking-widest uppercase text-white transition-all duration-200;
+    background: var(--blood);
+  }
+  .btn-primary:hover { @apply opacity-85 -translate-y-0.5; box-shadow: 0 8px 25px rgba(139,0,0,0.4); }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-md font-bold text-sm tracking-widest uppercase transition-all duration-200;
+    border: 1px solid rgba(192,192,192,0.3);
+    color: var(--silver);
+    background: transparent;
+  }
+  .btn-outline:hover { background: rgba(192,192,192,0.1); }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md font-semibold text-sm transition-all duration-200;
+    color: var(--text-muted);
+    background: transparent;
+  }
+  .btn-ghost:hover { background: rgba(192,192,192,0.08); color: var(--silver); }
+
+  .card {
+    @apply rounded-xl p-5;
+    background: var(--bg-card);
+    border: 1px solid rgba(192,192,192,0.08);
+  }
+  .card-glow {
+    @apply rounded-xl p-5;
+    background: var(--bg-card);
+    border: 1px solid rgba(139,0,0,0.25);
+  }
+
+  .input-dark {
+    @apply w-full rounded-lg px-4 py-2.5 text-base outline-none transition-all duration-200;
+    background: var(--bg-dark);
+    border: 1px solid rgba(192,192,192,0.15);
+    color: var(--smoke);
+    font-family: 'Rajdhani', sans-serif;
+  }
+  .input-dark:focus { border-color: var(--blood); }
+  .input-dark::placeholder { color: var(--text-muted); }
+
+  .badge-active {
+    @apply text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full;
+    background: rgba(139,0,0,0.15); color: var(--blood);
+  }
+  .badge-upcoming {
+    @apply text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full;
+    background: rgba(192,192,192,0.1); color: var(--silver);
+  }
+  .badge-closed {
+    @apply text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full;
+    background: rgba(192,192,192,0.05); color: var(--text-muted);
+  }
+
+  .section-tag {
+    @apply text-xs font-bold tracking-widest uppercase mb-2;
+    color: var(--blood);
+  }
+  .section-title {
+    @apply text-3xl font-bold mb-2;
+    font-family: 'Orbitron', monospace;
+  }
+  .section-sub { color: var(--text-muted); @apply text-base mb-8; }
+
+  .progress-track { @apply rounded-full overflow-hidden; background: rgba(192,192,192,0.08); }
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500;
+    background: linear-gradient(90deg, var(--blood), #cc0000);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(139,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,0,0,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .neon-text {
+    background: linear-gradient(135deg, var(--blood), #cc0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-card { @apply card text-center; }
+  .stat-num {
+    @apply text-2xl font-bold;
+    font-family: 'Orbitron', monospace;
+    color: var(--blood);
+  }
+  .stat-label { @apply text-xs uppercase tracking-widest mt-1; color: var(--text-muted); }
+}
